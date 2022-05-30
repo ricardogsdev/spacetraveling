@@ -1,0 +1,9 @@
+import MyComponent from '../../../../slices/Posts';
+
+export default {
+  title: 'slices/Posts'
+}
+
+
+export const _Default = () => <MyComponent slice={{"variation":"default","name":"Default","slice_type":"posts","items":[{"heading":[{"type":"paragraph","text":"Fugiat eiusmod incididunt nulla ea adipisicing anim laboris nostrud. Officia laboris et ea dolor. Incididunt culpa do nisi est labore adipisicing.","spans":[]}],"body":[{"type":"paragraph","text":"Anim enim sunt labore do incididunt irure. Quis consectetur Lorem officia irure minim adipisicing ex ad. Aute et reprehenderit duis anim et nostrud consequat esse non sint qui culpa velit non in.","spans":[]}]},{"heading":[{"type":"paragraph","text":"Velit voluptate nostrud adipisicing sint aliquip magna culpa nulla ullamco sit ut. Irure irure ipsum aute ut in ex quis nostrud officia ut ex quis magna ea Lorem. Dolore incididunt occaecat eu irure magna aute.","spans":[]}],"body":[{"type":"paragraph","text":"Eu id ut ullamco voluptate enim ipsum laborum duis voluptate qui. Incididunt voluptate et deserunt. Non proident aliqua nostrud aliqua ea.","spans":[]}]}],"primary":{"title":[{"type":"heading1","text":"Facilitate magnetic bandwidth","spans":[]}],"subtitle":[{"type":"paragraph","text":"Consectetur ipsum incididunt nisi ipsum ad enim ex dolor incididunt ad fugiat nulla. Labore non ea cupidatat mollit quis incididunt ipsum ipsum laborum.","spans":[]}],"author":[{"type":"paragraph","text":"Do ad est Lorem proident dolore aliqua exercitation exercitation dolore enim proident reprehenderit. Commodo adipisicing nisi eiusmod amet in fugiat consequat.","spans":[]}],"banner":{"dimensions":{"width":900,"height":500},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"}},"id":"_Default"}} />
+_Default.storyName = 'Default'

@@ -1,4 +1,5 @@
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, PreviewData } from 'next';
+import Head from 'next/head';
 
 import { getPrismicClient } from '../services/prismic';
 
@@ -24,13 +25,37 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-// export default function Home() {
-//   // TODO
-// }
+ export default function Home() {
+   return (
+    <>
+      <Head>
+        <title>spacetraveling</title>
+      </Head>
+      <main>
+        <section>
+          <span>Olá, eu aqui</span>
+        </section>
+      </main>
+    </>
+  );
+ }
 
-// export const getStaticProps = async () => {
-//   // const prismic = getPrismicClient({});
-//   // const postsResponse = await prismic.getByType(TODO);
+ export const getStaticPaths: GetStaticPaths = async () => {
+   return {
+     paths: [],
+     fallback: true
+   }
+ }
 
-//   // TODO
-// };
+ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
+    const prismic = getPrismicClient({ previewData });
+    const postsResponse = await prismic.getByType('posts', {
+      pageSize: 5,
+    });
+
+    const post = {}
+
+   return{
+     props: { post }
+   }
+};

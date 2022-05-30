@@ -1,0 +1,163 @@
+{
+  "slices": {
+    "components": {
+      "posts": {
+        "library": "slices",
+        "id": "posts",
+        "name": "Posts",
+        "description": "Posts",
+        "model": {
+          "id": "posts",
+          "type": "SharedSlice",
+          "name": "Posts",
+          "description": "Posts",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Posts",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "single": "heading1"
+                  }
+                },
+                "subtitle": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Subtitle",
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "author": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Author",
+                    "placeholder": "Nome do autor",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "banner": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Banner",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "items": {
+                "heading": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Heading",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "body": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Body",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "posts",
+            "items": [
+              {
+                "heading": [
+                  {
+                    "type": "paragraph",
+                    "text": "Fugiat eiusmod incididunt nulla ea adipisicing anim laboris nostrud. Officia laboris et ea dolor. Incididunt culpa do nisi est labore adipisicing.",
+                    "spans": []
+                  }
+                ],
+                "body": [
+                  {
+                    "type": "paragraph",
+                    "text": "Anim enim sunt labore do incididunt irure. Quis consectetur Lorem officia irure minim adipisicing ex ad. Aute et reprehenderit duis anim et nostrud consequat esse non sint qui culpa velit non in.",
+                    "spans": []
+                  }
+                ]
+              },
+              {
+                "heading": [
+                  {
+                    "type": "paragraph",
+                    "text": "Velit voluptate nostrud adipisicing sint aliquip magna culpa nulla ullamco sit ut. Irure irure ipsum aute ut in ex quis nostrud officia ut ex quis magna ea Lorem. Dolore incididunt occaecat eu irure magna aute.",
+                    "spans": []
+                  }
+                ],
+                "body": [
+                  {
+                    "type": "paragraph",
+                    "text": "Eu id ut ullamco voluptate enim ipsum laborum duis voluptate qui. Incididunt voluptate et deserunt. Non proident aliqua nostrud aliqua ea.",
+                    "spans": []
+                  }
+                ]
+              }
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Facilitate magnetic bandwidth",
+                  "spans": []
+                }
+              ],
+              "subtitle": [
+                {
+                  "type": "paragraph",
+                  "text": "Consectetur ipsum incididunt nisi ipsum ad enim ex dolor incididunt ad fugiat nulla. Labore non ea cupidatat mollit quis incididunt ipsum ipsum laborum.",
+                  "spans": []
+                }
+              ],
+              "author": [
+                {
+                  "type": "paragraph",
+                  "text": "Do ad est Lorem proident dolore aliqua exercitation exercitation dolore enim proident reprehenderit. Commodo adipisicing nisi eiusmod amet in fugiat consequat.",
+                  "spans": []
+                }
+              ],
+              "banner": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": "Placeholder image",
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"
+              }
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      }
+    }
+  }
+}
