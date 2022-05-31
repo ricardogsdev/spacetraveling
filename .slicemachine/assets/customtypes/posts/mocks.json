@@ -1,6 +1,51 @@
 {
-  "id": "c2af3a73-384b-47c9-90e3-bc58f0efca14",
-  "uid": "dolor-et-voluptas",
+  "id": "4b57ec29-38da-4b90-b92d-44184d71c25f",
+  "uid": "qui-fugit-voluptas",
   "type": "posts",
-  "data": {}
+  "data": {
+    "title": "grow front-end solutions",
+    "subtitle": "streamline virtual functionalities",
+    "author": "e-enable visionary blockchains",
+    "banner": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": "Placeholder image",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=900&h=500&fit=crop"
+    },
+    "content": [
+      {
+        "header": "empower holistic e-tailers",
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Irure exercitation eiusmod deserunt mollit velit id reprehenderit tempor. Ex eu commodo ex aliqua ullamco ea ut et amet dolore aliquip occaecat occaecat consectetur.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "header": "whiteboard next-generation experiences",
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Fugiat est dolor voluptate labore irure quis elit consequat mollit consequat eiusmod excepteur. Dolore tempor quis aliquip elit dolor ea commodo culpa fugiat. Velit fugiat dolore sit enim commodo commodo incididunt laboris esse fugiat reprehenderit.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "header": "optimize world-class blockchains",
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Consectetur fugiat qui nostrud anim aliquip dolore laboris cillum consectetur nulla minim anim ex eu. Amet commodo ut et ex occaecat ut consequat.",
+            "spans": []
+          }
+        ]
+      }
+    ]
+  }
 }
