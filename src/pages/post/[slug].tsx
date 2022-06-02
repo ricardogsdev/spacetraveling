@@ -13,6 +13,7 @@ import { stringify } from 'querystring';
 import Header from '../../components/Header';
 import { useEffect, useState } from 'react';
 import { RichText } from 'prismic-dom';
+import Prismic from '@prismicio/client';
 
 interface Post {
   first_publication_date: string | null;
@@ -100,13 +101,19 @@ export default function Post({ post }: PostProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
- /*  const prismic = getPrismicClient({});
-  const posts = await prismic.getByType(TODO); */
+  const prismic = getPrismicClient({});
+  const posts= await prismic.getByType('posts', {
+    pageSize: 1,
+  });
+
+  const paths = posts.results.map(post => ({
+    params: { slug: post.uid },
+  }));
 
   return {
-    paths: [],
-    fallback: true
-}
+    paths,
+    fallback: true,
+  };
 };
 
 export const getStaticProps = async ({previewData, params }: StaticProps ) => {
