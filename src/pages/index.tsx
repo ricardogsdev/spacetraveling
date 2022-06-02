@@ -12,6 +12,7 @@ import { getPrismicClient } from '../services/prismic';
 
 import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
+import { useEffect, useState } from 'react';
 
 interface Post {
   uid?: string;
@@ -32,7 +33,48 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
- export default function Home({ posts }: Post) {
+ export default function Home({ postsPagination }: HomeProps) {
+    const [posts, setPosts] = useState();
+    const [nextPage, setNextPage] = useState();
+
+    function loadPosts(){
+      setPosts(postsPagination.results);
+      setNextPage(postsPagination.next_page);
+    }
+    useEffect(() => {
+      loadPosts()
+    }, [])
+
+    async function loadMorePosts(): Promise<void> {
+      const response = await fetch(`${nextPage}`).then(data =>
+        data.json()
+      );
+
+     
+      const newPosts = response.results?.map((post:any) => {
+        return {
+          uid: post.uid,
+          first_publication_date: format(
+            new Date(post.first_publication_date),
+            'dd MMM yyyy',
+            { locale: ptBR }
+          ),
+          data: {
+            title: post.data.title,
+            subtitle: post.data.subtitle,
+            author: post.data.author
+          }
+        }
+      })
+
+      newPosts.unshift(...posts);
+          
+      setPosts(newPosts);
+      setNextPage(response.next_page);
+    }
+
+    console.log(posts); 
+
    return (
     <>
       <Head>
@@ -41,9 +83,9 @@ interface HomeProps {
       <Header />
       <main className={styles.container}>
         <div className={styles.postContent}>
-          { posts.map(post => (
-            <div className={styles.post}>
-              <Link href={post.uid}>
+          { posts && posts.map(post => (
+            <div className={styles.post} key={post.uid}>
+              <Link href={'post/'+post.uid}>
                 <a><h1>{post.data.title}</h1></a>
               </Link>
                 <p className={styles.subtitle}>{post.data.subtitle}</p>
@@ -52,8 +94,16 @@ interface HomeProps {
                   <span className={styles.author}><FaUserAlt size={15}/> {post.data.author}</span>
                 </div>
             </div>
-          )) }
+          )) 
+        }
+        {nextPage != null && (
+          <a href='#' className={styles.btnLoadPost} onClick={loadMorePosts}>
+            Carregar mais posts
+          </a>
+        )}
+          
         </div>
+        
       </main>
     </>
   );
@@ -69,26 +119,32 @@ interface HomeProps {
  export const getStaticProps: GetStaticProps = async ({ previewData }) => {
     const prismic = getPrismicClient({ previewData });
     const postsResponse= await prismic.getByType('posts', {
-      pageSize: 5,
+      pageSize: 1,
     });
-    
-    const posts = postsResponse.results?.map((post:any) => {
-      return {
-        uid: post.uid,
-        first_publication_date: format(
-          new Date(post.first_publication_date),
-          'dd MMM yyyy',
-          { locale: ptBR }
-        ),
-        data: {
-          title: post.data.title,
-          subtitle: post.data.subtitle,
-          author: post.data.author
+
+    const postsPagination = {
+      next_page: postsResponse.next_page,
+      results: postsResponse.results?.map((post:any) => {
+        return {
+          uid: post.uid,
+          first_publication_date: format(
+            new Date(post.first_publication_date),
+            'dd MMM yyyy',
+            { locale: ptBR }
+          ),
+          data: {
+            title: post.data.title,
+            subtitle: post.data.subtitle,
+            author: post.data.author
+          }
         }
-      }
-    })
-  
+      })
+    };
+    
+
    return{
-     props: { posts }
+     props: { 
+       postsPagination
+      }
    }
 };
