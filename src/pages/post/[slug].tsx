@@ -14,6 +14,7 @@ import Header from '../../components/Header';
 import { useEffect, useState } from 'react';
 import { RichText } from 'prismic-dom';
 import Prismic from '@prismicio/client';
+import { useRouter } from 'next/router';
 
 interface Post {
   first_publication_date: string | null;
@@ -47,6 +48,7 @@ interface StaticProps extends GetStaticProps {
 
 export default function Post({ post }: PostProps) {
   const [readTime, setReadTime] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     function contWords(){
@@ -64,7 +66,7 @@ export default function Post({ post }: PostProps) {
     }
 
     contWords();
-  }, []);
+  }, [readTime, router.isFallback]);
 
   
   return (
@@ -74,7 +76,7 @@ export default function Post({ post }: PostProps) {
       </Head>
       <Header />
       <div className={styles.banner}>
-        <img src={post.data.banner.url} alt='banner'/>
+        <img src={post.data.banner.url} alt={post.data.title}/>
       </div>
       <main className={styles.container}>
         <article className={styles.post}>
